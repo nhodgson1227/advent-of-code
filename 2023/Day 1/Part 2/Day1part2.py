@@ -2,8 +2,8 @@ def openFile():
     """ Reads in a file and returns a list of each line in the file
     """
     textInput = []
-    #f = open("/workspace/advent-of-code/2023/Day 1/Part 2/part2TestInput.txt", "r")
-    f = open("/workspace/advent-of-code/2023/Day 1/Part 2/part2Input.txt", "r")
+    f = open("/workspace/advent-of-code/2023/Day 1/Part 2/part2TestInput.txt", "r")
+    #f = open("/workspace/advent-of-code/2023/Day 1/Part 2/part2Input.txt", "r")
     for x in f:
         textInput.append(x)
         # print(x)
@@ -42,7 +42,7 @@ def main():
                         # Since the list of digits is in order, we can convert the number we found to an integer
                         # just by using the index + 1. Which we append to our new cleanedLine
                         cleanedLine.append(digits.index(digit)+1)
-                        notDigit = ""
+                        notDigit =str(char)
 
         cleanCalib.append(int(str(cleanedLine[0])+str(cleanedLine[-1])))
         # print(cleanCalib)
