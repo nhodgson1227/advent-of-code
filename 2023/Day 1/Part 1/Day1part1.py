@@ -2,8 +2,8 @@ def openFile():
     """ Reads in a file and returns a list of each line in the file
     """
     textInput = []
-    # f = open("/workspace/advent-of-code/2023/Day 1/testinput.txt", "r")
-    f = open("/workspace/advent-of-code/2023/Day 1/input.txt", "r")
+    # f = open("/workspace/advent-of-code/2023/Day 1/Part 1/testinput.txt", "r")
+    f = open("/workspace/advent-of-code/2023/Day 1/Part 1/input.txt", "r")
     for x in f:
         textInput.append(x)
         # print(x)
