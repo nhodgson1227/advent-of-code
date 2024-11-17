@@ -10,10 +10,10 @@ def openFile():
     f.close()
     return textInput
 
-def checkGame(game,gameLimit):
-    """ Takes the list of games and the game limits
-        and returns a boolean if it works or not
+def checkGame(game):
+    """ Takes the list of games, returns the lowest poassible values 
     """
+    gameLimit= [0,0,0] # records the highest value for each hand
     # Split the game by hands
     for i in game.split(";"):
         #print("Hand: ", i)
@@ -32,26 +32,28 @@ def checkGame(game,gameLimit):
                 parsedHand[2] += numCube
             else: 
                 numCube = int(x)
-        # --- Debug ---
-        if (parsedHand[0] > gameLimit[0]) or (parsedHand[1] > gameLimit[1]) or (parsedHand[2] > gameLimit[2]):
-            # print(gameLimit, parsedHand)
-            return False
-    return True
+
+        for z in range(3):
+            if (parsedHand[z] > gameLimit[z]):
+                gameLimit[z] = parsedHand[z]
+
+    return gameLimit
 
 
 def main():
     """ Main Method
     """
-    possibleGames = 0
-    gameLimits = [12,13,14]
+    gamePower = 0
     gameInput = openFile()
 
     for game in gameInput:
         # print("Line to Parse:", game)
         gameNum = int(game.split(":",1)[0][4:]) # Grabs the game number
         game = game[game.find(":")+2:] # Removes the 'Game: ' from the input
-        if (checkGame(game, gameLimits)):
-            possibleGames += gameNum
-    print(possibleGames)
+        power = 1
+        for g in checkGame(game):
+            power *= g
+        gamePower += power
+    print(gamePower)
 main()
 exit
