@@ -7,9 +7,8 @@ def openFile():
 
     # Open the file
 
-
-    f = open("/workspace/advent-of-code/2024/Day2/Part1/testinput.txt", "r")
-    #f = open("/workspace/advent-of-code/2024/Day2/Part1/input.txt", "r")
+    #f = open("/workspace/advent-of-code/2024/Day2/Part1/testinput.txt", "r")
+    f = open("/workspace/advent-of-code/2024/Day2/Part1/input.txt", "r")
     for line in f:
         line = line.strip().split(" ")
         lineInt = []
